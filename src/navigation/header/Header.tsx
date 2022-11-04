@@ -1,5 +1,6 @@
 import React from "react";
 import { ReactSVG } from "react-svg";
+import { Link } from 'react-router-dom'
 
 import { IconButton } from "components/atoms/IconButton";
 import { WalletConnect } from "wallet/WalletConnect";
@@ -8,11 +9,11 @@ import { ASSETS, ASSET_SRC } from "config";
 import { SOCIAL_PATHS } from "paths";
 import { LANGUAGE } from "language";
 import * as urls from "urls";
-import { 
-    checkDesktop, 
-    checkWindowResize, 
-    hideDocumentBody, 
-    showDocumentBody 
+import {
+    checkDesktop,
+    checkWindowResize,
+    hideDocumentBody,
+    showDocumentBody
 } from "window";
 import * as S from "./styles";
 
@@ -45,27 +46,27 @@ export default function Header() {
 
     function navList() {
         return (
-                <S.NC>
-                    <S.NavPaths>
-                        {/* {NAV_PATHS.map((path, index) => (
+            <S.NC>
+                <S.NavPaths>
+                    {/* {NAV_PATHS.map((path, index) => (
                             <S.Link key={index} href={path.href}>
                                 {path.name}
                             </S.Link>
                         ))} */}
-                    </S.NavPaths>
-                    <S.SC>
-                        <S.SocialPaths>
-                            {SOCIAL_PATHS.map((path, index) => (
-                                <S.SocialLink key={index} href={path.href}>
-                                    <ReactSVG src={`${ASSET_SRC}/${path.svg}`} />
-                                </S.SocialLink>
-                            ))}
-                        </S.SocialPaths>
-                        <S.Connect>
-                            <WalletConnect />
-                        </S.Connect>
-                    </S.SC>
-                </S.NC>
+                </S.NavPaths>
+                <S.SC>
+                    <S.SocialPaths>
+                        {SOCIAL_PATHS.map((path, index) => (
+                            <S.SocialLink key={index} href={path.href}>
+                                <ReactSVG src={`${ASSET_SRC}/${path.svg}`} />
+                            </S.SocialLink>
+                        ))}
+                    </S.SocialPaths>
+                    <S.Connect>
+                        <WalletConnect />
+                    </S.Connect>
+                </S.SC>
+            </S.NC>
         );
     }
 
@@ -96,7 +97,7 @@ export default function Header() {
         <S.Wrapper>
             <S.NavContainer>
                 <S.LogoContainer>
-                    <S.LogoLink href={urls.base}>
+                    <Link to={urls.base}>
                         <S.LogoContent>
                             <S.LogoHeaderContent>
                                 <S.LogoHeader>{LANGUAGE.companyTitle}</S.LogoHeader>
@@ -106,7 +107,7 @@ export default function Header() {
                             </S.LogoHeaderContent>
                             <S.LogoSubHeader>{LANGUAGE.companyDescription}</S.LogoSubHeader>
                         </S.LogoContent>
-                    </S.LogoLink>
+                    </Link>
                 </S.LogoContainer>
                 {getNav()}
             </S.NavContainer>

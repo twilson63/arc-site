@@ -2,7 +2,7 @@ import { STORAGE } from "config";
 import { DateType, KeyValueType } from "types";
 
 export function getHashUrl(url: string) {
-    return `/#${url}`;
+    return url //`/#${url}`;
 }
 
 export function formatAddress(address: string | null, wrap: boolean) {
@@ -28,7 +28,7 @@ export function formatDate(dateArg: string | null, dateType: DateType) {
         case "iso":
             date = new Date(dateArg);
             break;
-        case "epoch": 
+        case "epoch":
             date = new Date(Number(dateArg));
             break;
         default:

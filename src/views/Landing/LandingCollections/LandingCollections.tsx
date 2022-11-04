@@ -10,6 +10,7 @@ import { getHashUrl } from "utils";
 import { LANGUAGE } from "language";
 import { CollectionType } from "types";
 import * as S from "./styles";
+import { Link } from 'react-router-dom'
 
 function CollectionCard(props: CollectionType) {
 
@@ -27,9 +28,9 @@ function CollectionCard(props: CollectionType) {
                     <S.Description>{parse(props.state.briefDescription)}</S.Description>
                 </S.C1Content>
                 <S.LinkContainer>
-                    <S.Link href={collectionUrl}>
+                    <Link to={collectionUrl}>
                         <span>{LANGUAGE.viewCollection}</span>
-                    </S.Link>
+                    </Link>
                 </S.LinkContainer>
             </S.C1>
             <S.C2 image={getTxEndpoint(props.state.image)} />
